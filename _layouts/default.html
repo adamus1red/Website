@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{site.name}} | {{page.title}}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="{{site.description}}" />
+
+        <!-- Styles -->
+        <link href="{{site.staticurl}}css/normalize.css?{% bust_cache %}" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css?{% bust_cache %}" rel="stylesheet" integrity="sha256-IsefKVCcMUlgpXQgIMRsqbIqC6aP153JkybxTa7W7/8= sha512-mCNEsmR1i3vWAq8hnHfbCCpc6V5fP9t0N1fEZ1wgEPF/IKteFOYZ2uk7ApzMXkT71sDJ00f9+rVMyMyBFwsaQg==" crossorigin="anonymous">
+        <!-- Custom Theme files -->
+        <link href="{{site.staticurl}}css/style.css?{% bust_cache %}" rel="stylesheet" type="text/css" media="all" />
+        <!-- Custom Theme files -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        
+        <!--webfont-->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,800,700' rel='stylesheet' type='text/css'>
+
+        <!-- Icons -->
+        <link rel="icon" type="image/png" href="{{site.staticurl}}images/logo/icon-72.png" />
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileImage" content="{{site.staticurl}}images/logo/xxhdpi/ic_launcher.png"/>
+        <meta name="msapplication-TileColor" content="#D05722"/>
+        <link rel="apple-touch-icon" href="{{site.staticurl}}images/logo/crapple/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{site.staticurl}}images/logo/crapple/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="100x100" href="{{site.staticurl}}images/logo/crapple/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{site.staticurl}}images/logo/crapple/touch-icon-ipad-retina.png">
+
+        <!-- Social -->
+        {% include twitter.html %}
+        {% include facebook.html %}
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js?{% bust_cache %}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.2.1/trianglify.min.js?{% bust_cache %}"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js?{% bust_cache %}"></script>
+        <script type="text/javascript" src="{{site.staticurl}}js/instantclick.min.js?{% bust_cache %}" data-no-instant></script>
+        <script type="text/javascript">
+        var pattern = Trianglify({
+            width: screen.width,
+            height: screen.height,
+            cell_size: 150,
+            color_function: null,
+            color_space: "lab",
+            seed: 0.19484282797202468,
+            stroke_width: 1.51,
+            variance: 0.75,
+            x_colors: ["#ffffff","#f0f0f0","#d9d9d9","#bdbdbd","#969696","#737373","#525252","#252525","#000000"],
+            y_colors: "match_x",
+        });
+        </script>
+
+        <!-- {{page.url}} -->
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{site.baseurl}}/">{{site.name}}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li{% if page.url == '/index.html' %} class="active"{% endif %}><a href="{{site.baseurl}}/">Home</a></li>
+                        <li{% if page.url contains '/posts/' %} class="active"{% endif %}><a href="{{site.baseurl}}/posts/">Blog</a></li>
+                        <li{% if page.url == '/membership.html' %} class="active"{% endif %}><a href="{{site.baseurl}}/membership.html">Membership</a></li>
+                        <li class="dropdown">
+                            <a data-no-instant href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Services <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://wiki.strathtech.co.uk/">Wiki</a></li>
+                                <li><a href="http://gitlab.strathtech.co.uk/">Gitlab</a></li>
+                                <li><a href="http://owncloud.strathtech.co.uk/">ownCloud</a></li>
+                                <li><a href="http://wiki.strathtech.co.uk/wiki/IRC">IRC</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="http://status.strathtech.co.uk">Server Status</a></li>
+                                <li><a href="http://stats.irc.strathtech.co.uk">IRC Stats</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="http://accounts.strathtech.co.uk/">Account Manager</a></li>
+                                <li><a href="http://services.irc.strathtech.co.uk/">IRC Manager</a></li>
+                                <li><a href="http://clubs.strathtech.co.uk/">Clubs Manager</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li{% if page.url == '/about.html' %} class="active"{% endif %}><a href="{{site.baseurl}}/about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+{{content}}
+        
+        <script data-no-instant type="text/javascript">
+            var _paq = _paq || [];
+            _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+            _paq.push(["setCookieDomain", "*.strathtech.co.uk"]);
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u="//metrics.strathtech.co.uk/";
+                _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setSiteId', 1]);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            })();
+            $('body').css('background-image', 'url(' + pattern.png() + ')');
+            InstantClick.init();
+        </script>
+        <script type="text/javascript" src="{{site.staticurl}}js/countdown.min.js"></script>
+        <noscript><p><img src="//metrics.strathtech.co.uk/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+    </body>
+</html>
