@@ -1,0 +1,55 @@
+---
+layout: page
+title: Blog
+---
+<section class="post-background">
+  <!-- Show all posts here -->
+  {% for post in paginator.posts %}
+  	<article>
+          <header>
+              <h2><a href="{{site.baseurl}}{{post.url | replace: '//', '/' }}">{{ post.title }}</a></h2>
+              <span class="date"><span class="glyphicon glyphicon-time"></span> <time datetime="{{post.date|date:"%F"}}">{{post.date|date:"%b %d, %Y"}}</time></span><br/>
+              <span class="author"><span class="glyphicon glyphicon-user"></span> {% if post.author %}{{post.author}}{% else %}{{site.author}}{% endif%}</span>
+          </header>
+  		<div class="entry">
+              {{ post.excerpt }}
+          </div>
+          <p class="muted"><a class="btn btn-default" href="{{site.baseurl}}{{post.url | replace: '//', '/' }}">View Post &#187;</a></p>
+  	</article>
+  	<hr />
+  {% endfor %}
+
+  {% if paginator.total_pages > 1 %}
+  <nav style="padding-left: 0;margin: 20px 0;text-align: center;list-style: none;">
+    <ul class="pagination pagination-lg">
+      {% if paginator.previous_page %}
+      <li>
+        <a href="{{site.baseurl}}{{ paginator.previous_page_path | replace: '//', '/' }}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li><span aria-hidden="true">&laquo;</span></li>
+      {% endif %}
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <li class="active"><a href="{{site.baseurl}}/{{ 'posts' | replace: '//', '/' }}">{{page}} <span class="sr-only">(current)</span></a></li>
+        {% elsif page == 1 %}
+          <li><a href="{{site.baseurl}}/{{ 'posts' | replace: '//', '/' }}">{{ page }}</a></li>
+        {% else %}
+          <li><a href="{{site.baseurl}}/{{ site.paginate_path | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if paginator.next_page %}
+      <li>
+        <a href="{{site.baseurl}}{{ paginator.next_page_path | replace: '//', '/' }}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      {% else %}
+      <li><span aria-hidden="true">&raquo;</span></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</section>
