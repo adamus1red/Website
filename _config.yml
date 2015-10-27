@@ -1,0 +1,70 @@
+# Name of your blog (this will show up at the top of your page and in the RSS feed)
+name: StrathTech
+
+# Short description (goes below the title; it will also be used in the RSS feed)
+description: Strathclyde Technology Society
+
+# Your name, as you want it to appear underneath each post and in the footer
+author: StrathSED
+
+# Your email if you want it to be linked on the contact page
+contact_email: contact@strathtech.co.uk
+
+# Are we in freshers fair mode?
+freshers: 0
+
+# It's XMAS!
+xmas: 0
+
+# Committee data
+committee_positions: [president, treasurer, sysop]
+committee:
+  president:
+    name: Craig Morrison
+    gravatar: 29e309f15dc5748a962f13185d90bf62
+    email: president@strathtech.co.uk
+    position: President
+  treasurer:
+    name: Robbert Wilson
+    gravatar: 29e309f15dc5748a962f13185d90bf62
+    email: treasurer@strathtech.co.uk
+    position: Treasurer
+  sysop:
+    name: Adam McGhie
+    gravatar: 29e309f15dc5748a962f13185d90bf62
+    email: cto@strathtech.co.uk
+    position: Lead Systems Administrator
+
+# The URL of your actual domain. This will be used to make absolute links in the RSS feed.
+baseurl: https://www.strathtech.co.uk
+
+# Static URL's
+staticurl: https://www.strathtech.co.uk/static/
+
+# Page Shit
+paginate: 10
+paginate_path: "posts/:num/"
+
+twitter_name: 'StrathTech'
+twitter_creator: '@StrathTech'
+twitter_title: Strathclyde Technological Society
+twitter_description: StrathTech is a new look computing Society at Strathclyde Uni. We strive to promote good programming skills, hardware and networking knowledge, and fun!
+twitter_domain: strathtech.co.uk
+
+facebook_page_name: StrathTech
+
+#### Under the Hood Stuff #####
+
+# Use rdiscount as the markdown engine because it generates html5 compliant code for stuff like footnotes
+# If you use maroku (default engine) some of your generated pages may not validate or lint as html5
+# If you don't have it install it via gem install rdiscount
+markdown: rdiscount
+
+# Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
+permalink: /:year:month:day-:title
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.md, package.json, grunt.js, Gruntfile.js, node_modules, gen.sh, Gemfile]
+
+# Misc
+future: false

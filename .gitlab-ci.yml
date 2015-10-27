@@ -1,0 +1,6 @@
+before_script:
+- bash _ci/prepare
+
+Stable:
+  script:
+  - source _ci/build
