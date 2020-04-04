@@ -36,10 +36,10 @@ committee:
     position: Lead Systems Administrator
 
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
-baseurl: https://www.strathtech.co.uk
+baseurl: https://adamus1red.github.io/Website/
 
 # Static URL's
-staticurl: https://www.strathtech.co.uk/static/
+staticurl: https://adamus1red.github.io/Website/static/
 
 # Page Shit
 paginate: 10
